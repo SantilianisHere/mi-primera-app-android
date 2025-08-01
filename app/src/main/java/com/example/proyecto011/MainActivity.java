@@ -6,6 +6,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText et1, et2;
     private String [] operaciones = {"sumar", "restar", "multiplicar", "dividir"};
+    private String resultado = "";
 
 
     @Override
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         et2 = findViewById(R.id.et2);
         tv3 = findViewById(R.id.tv3);
         spinner1 = findViewById(R.id.spinner1);
+
 
         ArrayAdapter <String> adaptador1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,operaciones);
         spinner1.setAdapter(adaptador1);
@@ -46,24 +49,33 @@ public class MainActivity extends AppCompatActivity {
         int valor2 = Integer.parseInt(et2.getText().toString());
         String operacion = spinner1.getSelectedItem().toString();
 
+
         if (operacion.equals("sumar")) {
             int suma = valor1 + valor2;
-            tv3.setText("La suma es " + suma);
+            resultado = "La suma es " + suma;
         }
         if (operacion.equals("restar")) {
             int resta = valor1 - valor2;
-            tv3.setText("La resta es " + resta);
+            resultado = "La resta es " + resta;
         }
         if (operacion.equals("multiplicar")) {
             int multip = valor1 * valor2;
-            tv3.setText("La multiplicación es " + multip);
+            resultado = "La multiplicación es " + multip;
         }
         if (operacion.equals("dividir")) {
             int dividir = valor1 / valor2;
-            tv3.setText("La división es " + dividir);
+            resultado = "La división es " + dividir;
         }
 
-
+    }
+    public void resultadoop (View v) {
+        tv3.setText(resultado);
     }
 
+    public void limpiar (View v) {
+        tv3.setText("");
+        et1.setText("");
+        et2.setText("");
+        Toast.makeText(this, "Todos los datos se han limpiado", Toast.LENGTH_SHORT).show();
+    }
 }

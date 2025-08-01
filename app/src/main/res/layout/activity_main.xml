@@ -46,9 +46,29 @@
         android:onClick="operar"
         android:text="Operar" />
 
+    <Button
+        android:id="@+id/bres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="resultadoop"
+        android:text="Mostrar resultado" />
+
     <TextView
         android:id="@+id/tv3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Resultado:" />
+
+    <Button
+        android:id="@+id/buttonlimpiar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="limpiar"
+        android:text="Limpiar calculadora" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/calculadora" />
 </LinearLayout>
